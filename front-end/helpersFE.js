@@ -6,7 +6,7 @@
           painter, Totals, river,
           Results, initData, hoveredOver, currentPlayer*/
 
-
+var sedchecker = [];
 var addingYearFromFile = false; //Boolean used to keep a track of whether or not you're adding a year from file
 var click;
 var clickAndDrag = false;
@@ -1150,6 +1150,12 @@ function displayLevels(overlayHighlightType) {
         pushClick(0, getStamp(), 77, 0, null);
       }
       break;
+    case 'sediment':
+      selectionHighlightNumber = 19;
+      updateIndexPopup('To learn more about <span style="color:orange;">Sediment Control</span>, go to the <span style="color:yellow;">Glossary</span>, select "Modules" and then <span style="color:yellow;">"Water Quality"</span>.');
+      if (curTracking) {
+        pushClick(0, getStamp(), 78, 0, null);
+      }
   } //end switch
 
   //save selectionHighlightNumber for quick access via hotkey
@@ -1207,6 +1213,7 @@ function drawLevelsOntoBoard(selectionHighlightNumber, highlightType) {
       meshMaterials[i].map = highlightArray[getHighlightColor(highlightType, i)];
     } //end if
   } //end for
+
 
   showLevelDetails(selectionHighlightNumber);
   currentHighlightType = selectionHighlightNumber;
@@ -1470,6 +1477,11 @@ function getHighlightColor(highlightType, tileId) {
   else if (highlightType == "phosphorus") {
     //-1 for 0 indexing of arrays, sigh
     return (Totals.phosphorusRiskAssessment[currentYear][tileId] - 1);
+  }
+  else if (highlightType == "sediment") {
+    //-1 for 0 indexing of arrays, sigh
+    // return (Totals.sedimentDeliveryScore[currentYear][tileId] - 1);
+  console.log(Number(boardData[currentBoard].map[tileId].results[yearSelected].calculatedSedimentDeliveryToStreamTile) * Number(boardData[currentBoard].map[tileId].area));
   }
   //flood frequency highlight color indicies
   else if (highlightType == "flood") {
@@ -3680,7 +3692,7 @@ function showLevelDetails(value) {
       break;
     case 3:
       //show phosphorus legend
-      document.getElementById('phoshorusIcon').className = "levelsSelectorIcon iconSelected";
+      document.getElementById('phoshorusIcon').className = "levelsSelectorIcon iconSelected"; /*Wait so we just kept using this typo...phoshorus???*/
       document.getElementById("phosphorusDetailsList").className = "DetailsList levelDetailsList";
       break;
     case 4:
