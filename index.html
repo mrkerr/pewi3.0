@@ -427,6 +427,25 @@
           </div>
         </div>
 
+        <div id="sedimentDetailsList" class="DetailsListRolled levelDetailsList">
+          <center><h1 class="DetailsList-title">Sediment Control</h1></center>
+          <div class="legendColor" style="background-color: #ffffc9;">
+            <p class="levelsTextDetails" style="margin-top:10px;">0-9.94</p>
+          </div>
+          <div class="legendColor" style="background-color: #ac7339;">
+            <p class="levelsTextDetails">9.94-19.88</p>
+          </div>
+          <div class="legendColor" style="background-color: #cb657a;">
+            <p class="levelsTextDetails">19.88-29.82</p>
+          </div>
+          <div class="legendColor" style="background-color: #882252;">
+            <p class="levelsTextDetails">29.82-39.76</p>
+          </div>
+          <div class="legendColor" style="background-color: #9a3010;">
+            <p class="levelsTextDetails">>39.76</p>
+          </div>
+        </div>
+
         <!-- "Letter N Ig Icon" by Supratim Nayak (http://www.iconarchive.com/artist/hydrattz.html) with free commercial use -->
         <p class="levelsText">Subwatershed Nitrate-N Percent Contribution</p>
         <img id="nitrateIcon" class="levelsSelectorIcon icon" src="./imgs/N.png" onclick="displayLevels('nitrate');">
@@ -439,6 +458,9 @@
 
         <p class="levelsText">Sediment Control</p>
         <img id="sedimentIcon" class="levelsSelectorIcon icon" src="./imgs/P.png" onclick="displayLevels('sediment');">
+
+        <p class="levelsText">Carbon Sequestration</p>
+        <img id="carbonIcon" class="levelsSelectorIcon icon" src="./imgs/P.png" onclick="displayLevels('carbon');">
 
       </div>
 
@@ -554,6 +576,8 @@
             <p class="levelsTextDetails">14-18% slope</p>
           </div>
         </div>
+
+
 
         <p class="featuresText">Flood Frequency</p><img id="floodFrequency" class="featureSelectorIcon icon" src="./imgs/Icon_Flood_Frequency.svg" onclick="displayLevels('flood');">
         <p class="featuresText">Strategic Wetlands</p><img id="strategicWetlands" class="featureSelectorIcon icon" src="./imgs/Icon_Strategic_Wetlands.svg" onclick="displayLevels('wetlands');">

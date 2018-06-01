@@ -1156,6 +1156,14 @@ function displayLevels(overlayHighlightType) {
       if (curTracking) {
         pushClick(0, getStamp(), 78, 0, null);
       }
+      break;
+
+    case 'carbon':
+      selectionHighlightNumber = 20;
+      updateIndexPopup('To learn more about <span style="color:orange;">Carbon Sequestration</span>, go to the <span style="color:yellow;">Glossary</span>, select "Modules" and then <span style="color:yellow;">"Water Quality"</span>.');
+      if (curTracking) {
+        pushClick(0, getStamp(), 79, 0, null);
+      }
   } //end switch
 
   //save selectionHighlightNumber for quick access via hotkey
@@ -1478,11 +1486,22 @@ function getHighlightColor(highlightType, tileId) {
     //-1 for 0 indexing of arrays, sigh
     return (Totals.phosphorusRiskAssessment[currentYear][tileId] - 1);
   }
+
+
   else if (highlightType == "sediment") {
-    //-1 for 0 indexing of arrays, sigh
-    // return (Totals.sedimentDeliveryScore[currentYear][tileId] - 1);
-  console.log(Number(boardData[currentBoard].map[tileId].results[yearSelected].calculatedSedimentDeliveryToStreamTile) * Number(boardData[currentBoard].map[tileId].area));
+  var sedimentDelivery = Number(boardData[currentBoard].map[tileId].results[yearSelected].calculatedSedimentDeliveryToStreamTile) * Number(boardData[currentBoard].map[tileId].area);
+  if(sedimentDelivery>=0.0043 && sedimentDelivery<=9.9447) return 5;
+  else if(sedimentDelivery>9.9447 && sedimentDelivery<=19.8851) return 54;
+  else if(sedimentDelivery>19.8851 && sedimentDelivery<=29.8255) return 23;
+  else if(sedimentDelivery>29.8255 && sedimentDelivery<=39.7659) return 24;
+  else if(sedimentDelivery>39.7659) return 3;
   }
+
+  else if (highlightType == "carbon") {
+    var carbonSeq = Number(boardData[currentBoard].map[tileId].results[yearSelected].calculatedCarbonSequestration) / 1000;
+    console.log(carbonSeq);
+  }
+
   //flood frequency highlight color indicies
   else if (highlightType == "flood") {
 
@@ -1987,6 +2006,10 @@ function getHighlightedInfo(tileId) {
         //create string for short-rotation woody biomass yield
       case 18:
         highlightString = "608.6 tons/acre/yr" + "<br>";
+        break;
+        //create string for sediment control
+        case 19:
+        highlightString = (Number(boardData[currentBoard].map[tileId].results[yearSelected].calculatedSedimentDeliveryToStreamTile) * Number(boardData[currentBoard].map[tileId].area)).toFixed(2) + " tons" + "<br>";
         break;
     }
     return highlightString;
@@ -3779,9 +3802,16 @@ function showLevelDetails(value) {
       document.getElementById('shortDetailsList').className = "DetailsList yieldDetailsList";
       updateIndexPopup('<span style="color:orange;">Short-Rotation Woody Biomass</span> produces the same output, no matter the soil type. To learn more, go to the <span style="color:yellow">Glossary</span>, select <span style="color:yellow">"Modules"</span>, and then <span style="color:yellow">"Yield"</span>.');
       break;
-  } // END switch
+    case 19:
+      //show sediment legend
+      document.getElementById('sedimentIcon').className = "levelsSelectorIcon iconSelected";
+      document.getElementById("sedimentDetailsList").className = "DetailsList levelDetailsList";
+      break;
+  }
+
+  // END switch
   //hide ecosystem indicator legends
-  if (value > -4 && value < 0) {
+  if (value > -4 && value < 0 || value==-19) {
     var element = document.getElementsByClassName('DetailsList');
     if (element.length > 0) {
       element[0].className = 'DetailsListRolled';
