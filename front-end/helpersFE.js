@@ -678,7 +678,7 @@ function setProgressbarMinMaxValues(id, option, value) {
   }
 
 
-  
+
 }
 
 //Adds the given tileId and painter to the undoArr
@@ -2477,7 +2477,7 @@ function getHighlightedInfo(tileId) {
         break;
         //create string for gross erosion levels
       case 2:
-        highlightString = Number(boardData[currentBoard].map[tileId].results[currentYear].calculatedGrossErosionRate).toFixed(2) + " t/ac/yr" + "<br>";
+        highlightString = "Erosion: " + getTileErosionInfoText((Number(boardData[currentBoard].map[tileId].results[currentYear].calculatedGrossErosionRate).toFixed(2))) + "<br>" + (Number(boardData[currentBoard].map[tileId].results[currentYear].calculatedGrossErosionRate).toFixed(2)) + " t/ac/yr" + "<br>";
         break;
         //create string for phosphorus load levels
       case 3:
@@ -2637,11 +2637,11 @@ function getHighlightedInfo(tileId) {
         break;
         //create string for sediment control
       case 19:
-        highlightString = (Number(boardData[currentBoard].map[tileId].results[yearSelected].calculatedSedimentDeliveryToStreamTile) * Number(boardData[currentBoard].map[tileId].area)).toFixed(2) + " tons" + "<br>";
+        highlightString = "Sediment: " + getTileSedimentInfoText((Number(boardData[currentBoard].map[tileId].results[yearSelected].calculatedSedimentDeliveryToStreamTile) * Number(boardData[currentBoard].map[tileId].area)).toFixed(2)) + "<br>" + (Number(boardData[currentBoard].map[tileId].results[yearSelected].calculatedSedimentDeliveryToStreamTile) * Number(boardData[currentBoard].map[tileId].area)).toFixed(2) + " tons" + "<br>";
         break;
         //create string for carbon sequestration
       case 20:
-        highlightString = (Number(boardData[currentBoard].map[tileId].results[yearSelected].calculatedCarbonSequestration/1000)*1.10231).toFixed(1) + " tons" + "<br>";
+        highlightString = "Carbon: " + getTileCarbonInfoText((Number(boardData[currentBoard].map[tileId].results[yearSelected].calculatedCarbonSequestration/1000)*1.10231).toFixed(1)) + "<br>" + (Number(boardData[currentBoard].map[tileId].results[yearSelected].calculatedCarbonSequestration/1000)*1.10231).toFixed(1) + " tons" + "<br>";
         break;
         //create string for Game Wildlife score
       case 21:
@@ -6102,7 +6102,7 @@ function getTileBiodiversityScore(tileId){
 
 //This function is used to display hover information for the Game Wildlife overlay
 function getTileGameWildlifeInfoText(score){
-  if(score == 0) return "No Impact";
+  if(score == 0) return "Very Low Impact";
   if(score > 0 && score <= 2.1) return "Low Impact";
   else if (score>2.1 && score<=4.1) return "Moderate Impact";
   else if (score>4 && score<=6.1) return "High Impact";
@@ -6111,12 +6111,41 @@ function getTileGameWildlifeInfoText(score){
 
 //This function is used to display hover information for the Biodiversity overlay
 function getTileBiodiversityInfoText(score){
-  if(score == 0) return "No Impact";
+  if(score == 0) return "Very Low Impact";
   else if (score> 0 && score<=2.5) return "Low Impact";
   else if (score>2.5 && score<=5) return "Moderate Impact";
   else if (score> 5 && score<=7.5) return "High Impact";
   else if (score>7.5) return "Very High Impact"
 }
+
+//This function is used to display hover information for the Biodiversity overlay
+function getTileErosionInfoText(score){
+  if(score < 0.5) return "Very Low Impact";
+  else if (score>= .5 && score<2) return "Low Impact";
+  else if (score>=2 && score<3.5) return "Moderate Impact";
+  else if (score>=3.5 && score<5) return "High Impact";
+  else if (score>=5) return "Very High Impact"
+}
+
+//This function is used to display hover information for the Biodiversity overlay
+function getTileSedimentInfoText(score){
+  if(score < 9.94) return "Very Low Impact";
+  else if (score>= 9.94 && score<19.88) return "Low Impact";
+  else if (score>=19.88 && score<29.82) return "Moderate Impact";
+  else if (score>=29.82 && score<39.76) return "High Impact";
+  else if (score>=39.76) return "Very High Impact"
+}
+
+//This function is used to display hover information for the Biodiversity overlay
+function getTileCarbonInfoText(score){
+  if(score < 4.04) return "Very Low Impact";
+  else if (score>= 4.04 && score<8.08) return "Low Impact";
+  else if (score>=8.08 && score<12.12) return "Moderate Impact";
+  else if (score>=12.12 && score<16.16) return "High Impact";
+  else if (score>=16.16) return "Very High Impact"
+}
+
+
 
 
 function getTilePrecipitationMultiplier(year){

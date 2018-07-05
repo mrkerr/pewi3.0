@@ -498,20 +498,19 @@
           <center>
             <h1 class="DetailsList-title">Gross Erosion</h1></center>
           <div class="legendColor" style="background-color: #ffffc9">
-            <p class="levelsTextDetails">
-              < 0.5 t/ac/yr</p>
+            <p class="levelsTextDetails">Very Low</p>
           </div>
           <div class="legendColor" style="background-color: #e3c972">
-            <p class="levelsTextDetails">0.5-2 t/ac/yr</p>
+            <p class="levelsTextDetails">Low</p>
           </div>
           <div class="legendColor" style="background-color: #919246">
-            <p class="levelsTextDetails">2-3.5 t/ac/yr</p>
+            <p class="levelsTextDetails">Moderate</p>
           </div>
           <div class="legendColor" style="background-color: #8b4513">
-            <p class="levelsTextDetails">3.5-5 t/ac/yr</p>
+            <p class="levelsTextDetails">High</p>
           </div>
           <div class="legendColor" style="background-color: #654321">
-            <p class="levelsTextDetails">> 5 t/ac/yr</p>
+            <p class="levelsTextDetails">Very High</p>
           </div>
         </div>
 
@@ -540,19 +539,19 @@
           <center>
             <h1 class="DetailsList-title">Sediment Control</h1></center>
           <div class="legendColor" style="background-color: #daf2f0;">
-            <p class="levelsTextDetails">0-9.94 tons</p>
+            <p class="levelsTextDetails">Very Low</p>
           </div>
           <div class="legendColor" style="background-color: #a7dfdb;">
-            <p class="levelsTextDetails">9.94-19.88 tons</p>
+            <p class="levelsTextDetails">Low</p>
           </div>
           <div class="legendColor" style="background-color: #5ab8b1;">
-            <p class="levelsTextDetails">19.88-29.82 tons</p>
+            <p class="levelsTextDetails">Moderate</p>
           </div>
           <div class="legendColor" style="background-color: #22877f;">
-            <p class="levelsTextDetails">29.82-39.76 tons</p>
+            <p class="levelsTextDetails">High</p>
           </div>
           <div class="legendColor" style="background-color: #02635b;">
-            <p class="levelsTextDetails">>39.76 tons</p>
+            <p class="levelsTextDetails">Very High</p>
           </div>
         </div>
 
@@ -560,19 +559,19 @@
           <center>
             <h1 class="DetailsList-title">Carbon Sequestration</h1></center>
           <div class="legendColor" style="background-color: #d5f0d3;">
-            <p class="levelsTextDetails">0-4.04 tons</p>
+            <p class="levelsTextDetails">Very Low</p>
           </div>
           <div class="legendColor" style="background-color: #64a95e;">
-            <p class="levelsTextDetails">4.04-8.09 tons</p>
+            <p class="levelsTextDetails">Low</p>
           </div>
           <div class="legendColor" style="background-color: #346b2f;">
-            <p class="levelsTextDetails">8.09-12.13 tons</p>
+            <p class="levelsTextDetails">Moderate</p>
           </div>
           <div class="legendColor" style="background-color: #1d4d19;">
-            <p class="levelsTextDetails">12.13-16.17 tons</p>
+            <p class="levelsTextDetails">High</p>
           </div>
           <div class="legendColor" style="background-color: #042402;">
-            <p class="levelsTextDetails">>16.17 tons</p>
+            <p class="levelsTextDetails">Very High</p>
           </div>
         </div>
 
@@ -618,21 +617,21 @@
 
         <div id="nitratetileDetailsList" class="DetailsListRolled levelDetailsList">
           <center>
-            <h1 class="DetailsList-title">Cell Nitrate Score</h1></center>
+            <h1 class="DetailsList-title">Cell Nitrate-N Percent Contribution</h1></center>
           <div class="legendColor" style="background-color: #e6bb00;">
-            <p class="levelsTextDetails">0-510</p>
+            <p class="levelsTextDetails">Very Low</p>
           </div>
           <div class="legendColor" style="background-color: #c97b08;">
-            <p class="levelsTextDetails">510-1020</p>
+            <p class="levelsTextDetails">Low</p>
           </div>
           <div class="legendColor" style="background-color: #ad490d;">
-            <p class="levelsTextDetails">1020-1530</p>
+            <p class="levelsTextDetails">Moderate</p>
           </div>
           <div class="legendColor" style="background-color: #9a3010;">
-            <p class="levelsTextDetails">1530-2040</p>
+            <p class="levelsTextDetails">High</p>
           </div>
           <div class="legendColor" style="background-color: #871c12;">
-            <p class="levelsTextDetails">2040+</p>
+            <p class="levelsTextDetails">Very High</p>
           </div>
         </div>
 
@@ -654,7 +653,7 @@
         </div>
         <!--"S.png icon created by Sam Kerr"-->
         <div class="tooltipResultsSediment">
-          <img id="sedimentIcon" class="levelsSelectorIcon icon" src="./imgs/S.png" onclick="displayLevels('sediment');">
+          <img id="sedimentIcon" class="levelsSelectorIcon icon" src="./imgs/Sdark.png" onclick="displayLevels('sediment');">
           <span class="tooltiptextResults">Sediment Runoff</span>
         </div>
 
@@ -662,24 +661,24 @@
 
 
       <div class="rightcol">
+        <div class="tooltipResultsNitrateTile">
+          <img id="nitratetileIcon" class="levelsSelectorIcon icon" src="./imgs/N.png" onclick="displayLevels('nitratetile');">
+          <span class="tooltiptextResults">Cell Nitrate-N Percent Contribution</span>
+        </div>
         <!--"C.png icon created by Sam Kerr"-->
         <div class="tooltipResultsCarbon">
-          <img id="carbonIcon" class="levelsSelectorIcon icon" src="./imgs/C.png" onclick="displayLevels('carbon');">
+          <img id="carbonIcon" class="levelsSelectorIcon icon" src="./imgs/Cdark.png" onclick="displayLevels('carbon');">
           <span class="tooltiptextResults">Carbon Sequestration</span>
         </div>
         <!--"G.png icon created by Sam Kerr"-->
         <div class="tooltipResultsGameWildlife">
-          <img id="gamewildlifeIcon" class="levelsSelectorIcon icon" src="./imgs/G.png" onclick="displayLevels('gamewildlife');">
+          <img id="gamewildlifeIcon" class="levelsSelectorIcon icon" src="./imgs/Gdark.png" onclick="displayLevels('gamewildlife');">
           <span class="tooltiptextResults">Game Wildlife</span>
         </div>
         <!--"B.png icon created by Sam Kerr"-->
         <div class="tooltipResultsBiodiversity">
-          <img id="biodiversityIcon" class="levelsSelectorIcon icon" src="./imgs/B.png" onclick="displayLevels('biodiversity');">
+          <img id="biodiversityIcon" class="levelsSelectorIcon icon" src="./imgs/Bdark.png" onclick="displayLevels('biodiversity');">
           <span class="tooltiptextResults">Biodiversity</span>
-        </div>
-        <div class="tooltipResultsNitrateTile">
-          <img id="nitratetileIcon" class="levelsSelectorIcon icon" src="./imgs/N.png" onclick="displayLevels('nitratetile');">
-          <span class="tooltiptextResults">Nitrate</span>
         </div>
 
       </div>
